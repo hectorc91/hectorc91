@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Hector Carricondo — Platform Architect & Technical Advisor | Cloud Architect</title>
+<meta name="description" content="Guías paso a paso y demos open source de infraestructura enterprise: automatización, plataforma Kubernetes/OpenShift, seguridad y observabilidad.">
+
+<!-- Open Graph: así se ve el link al compartirlo en LinkedIn -->
+<meta property="og:type" content="website">
+<meta property="og:title" content="Hector Carricondo — Platform Architect & Technical Advisor | Cloud Architect">
+<meta property="og:description" content="Guías paso a paso y demos open source de infraestructura enterprise: automatización, plataforma Kubernetes/OpenShift, seguridad y observabilidad.">
+<meta property="og:url" content="https://hectorc91.github.io/">
+<meta property="og:image" content="https://hectorc91.github.io/assets/og-cover.png">
+<meta name="twitter:card" content="summary_large_image">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg: #12161c;
+    --surface: #1a2028;
+    --line: #262e38;
+    --text: #e7e9ed;
+    --text-dim: #9aa3b0;
+    --accent: #d4a24c;
+    --automation: #c9524a;
+    --platform: #4a7fc9;
+    --security: #7fae6a;
+    --observability: #a877c9;
+  }
+  *{box-sizing:border-box;}
+  html,body{margin:0;padding:0;}
+  body{
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'IBM Plex Sans', system-ui, sans-serif;
+    line-height: 1.55;
+    -webkit-font-smoothing: antialiased;
+  }
+  .wrap{
+    max-width: 780px;
+    margin: 0 auto;
+    padding: 5rem 1.5rem 4rem;
+  }
+  header{
+    margin-bottom: 4rem;
+    opacity: 0;
+    animation: rise 0.7s ease-out forwards;
+  }
+  @keyframes rise{
+    from{ opacity:0; transform: translateY(10px); }
+    to{ opacity:1; transform: translateY(0); }
+  }
+  h1{
+    font-family: 'Space Grotesk', sans-serif;
+    font-weight: 700;
+    font-size: clamp(2rem, 5vw, 2.8rem);
+    margin: 0 0 0.3rem;
+    letter-spacing: -0.01em;
+  }
+  .role{
+    font-family: 'Space Grotesk', sans-serif;
+    font-weight: 500;
+    color: var(--accent);
+    font-size: 1.15rem;
+    margin: 0 0 1.3rem;
+  }
+  .bio{
+    color: var(--text-dim);
+    max-width: 58ch;
+    font-size: 1.02rem;
+  }
+  .links{
+    margin-top: 1.6rem;
+    display: flex;
+    gap: 1.4rem;
+    flex-wrap: wrap;
+  }
+  .links a{
+    color: var(--text);
+    text-decoration: none;
+    border-bottom: 1px solid var(--line);
+    padding-bottom: 2px;
+    font-size: 0.95rem;
+    transition: border-color 0.15s ease, color 0.15s ease;
+  }
+  .links a:hover{
+    color: var(--accent);
+    border-color: var(--accent);
+  }
+  .category{
+    margin-bottom: 3rem;
+  }
+  .category h2{
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 1.05rem;
+    font-weight: 600;
+    color: var(--cat-color, var(--text-dim));
+    margin: 0 0 1.2rem;
+  }
+  .project{
+    border-left: 3px solid var(--cat-color, var(--line));
+    background: var(--surface);
+    padding: 1.4rem 1.6rem;
+    margin-bottom: 1rem;
+    border-radius: 0 6px 6px 0;
+  }
+  .project-head{
+    display: flex;
+    align-items: baseline;
+    gap: 0.7rem;
+    flex-wrap: wrap;
+  }
+  .project-name{
+    font-family: 'IBM Plex Mono', monospace;
+    font-weight: 500;
+    font-size: 1.05rem;
+  }
+  .project-sub{
+    color: var(--text-dim);
+    font-size: 0.93rem;
+  }
+  .project-desc{
+    margin: 0.6rem 0 0.9rem;
+    color: var(--text-dim);
+    font-size: 0.95rem;
+    max-width: 60ch;
+  }
+  .project-links{
+    display: flex;
+    gap: 1.3rem;
+  }
+  .project-links a{
+    color: var(--cat-color, var(--accent));
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-weight: 500;
+  }
+  .project-links a:hover{
+    text-decoration: underline;
+  }
+  .project.placeholder{
+    border-left-color: var(--line);
+    opacity: 0.5;
+  }
+  .cta{
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    padding: 2.2rem 2rem;
+    margin: 3.5rem 0 3rem;
+    text-align: left;
+  }
+  .cta h2{
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 1.4rem;
+    margin: 0 0 0.6rem;
+  }
+  .cta p{
+    color: var(--text-dim);
+    margin: 0 0 1.4rem;
+    max-width: 55ch;
+  }
+  .cta-buttons{
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+  .btn{
+    display: inline-block;
+    padding: 0.7rem 1.4rem;
+    border-radius: 6px;
+    text-decoration: none;
+    font-size: 0.93rem;
+    font-weight: 500;
+    transition: opacity 0.15s ease;
+  }
+  .btn:hover{ opacity: 0.85; }
+  .btn-primary{
+    background: var(--accent);
+    color: #12161c;
+  }
+  .btn-secondary{
+    background: transparent;
+    border: 1px solid var(--line);
+    color: var(--text);
+  }
+  footer{
+    padding-top: 1.6rem;
+    border-top: 1px solid var(--line);
+    color: var(--text-dim);
+    font-size: 0.88rem;
+  }
+  @media (max-width: 520px){
+    .wrap{ padding: 3.2rem 1.2rem 3rem; }
+    header{ margin-bottom: 3rem; }
+    .cta{ padding: 1.8rem 1.4rem; }
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header>
+    <h1>Hector Carricondo</h1>
+    <p class="role">Platform Architect &amp; Technical Advisor | Cloud Architect</p>
+    <p class="bio">
+      Documento cómo despliego, en herramientas 100% open source, la misma automatización
+      e infraestructura que suelo implantar en entornos empresariales con Ansible,
+      Kubernetes y OpenShift. Guías paso a paso y demos reproducibles, sin relleno.
+    </p>
+    <div class="links">
+      <a href="https://www.linkedin.com/in/hector-carricondo-cloud" target="_blank" rel="noopener">LinkedIn</a>
+      <a href="https://github.com/hectorc91" target="_blank" rel="noopener">GitHub</a>
+      <a href="https://TU-DOMINIO-CARRICONDOTECH" target="_blank" rel="noopener">CarricondoTech</a>
+    </div>
+  </header>
+
+  <div class="category" style="--cat-color: var(--automation);">
+    <h2>Automatización</h2>
+    <div class="project">
+      <div class="project-head">
+        <span class="project-name">automation-awx</span>
+        <span class="project-sub">Ansible Tower, en versión open source</span>
+      </div>
+      <p class="project-desc">
+        Interfaz web, RBAC, inventarios dinámicos y plantillas de job sobre AWX,
+        sin coste de licencia.
+      </p>
+      <div class="project-links">
+        <a href="https://github.com/hectorc91/automation-awx#readme">Ver guía</a>
+        <a href="https://github.com/hectorc91/automation-awx">Ver repositorio</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="category" style="--cat-color: var(--platform);">
+    <h2>Plataforma</h2>
+    <div class="project">
+      <div class="project-head">
+        <span class="project-name">platform-okd</span>
+        <span class="project-sub">OpenShift, edición comunitaria</span>
+      </div>
+      <p class="project-desc">
+        Desde un laboratorio local con CRC hasta un clúster completo, sin
+        suscripción de Red Hat.
+      </p>
+      <div class="project-links">
+        <a href="https://github.com/hectorc91/platform-okd#readme">Ver guía</a>
+        <a href="https://github.com/hectorc91/platform-okd">Ver repositorio</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="category" style="--cat-color: var(--security);">
+    <h2>Seguridad</h2>
+    <div class="project placeholder">
+      <div class="project-head">
+        <span class="project-name">security-*</span>
+        <span class="project-sub">Próximamente: Keycloak, Vault</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="category" style="--cat-color: var(--observability);">
+    <h2>Observabilidad</h2>
+    <div class="project placeholder">
+      <div class="project-head">
+        <span class="project-name">observability-*</span>
+        <span class="project-sub">Próximamente: Prometheus, Grafana</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="cta">
+    <h2>¿Hablamos?</h2>
+    <p>
+      Si te enfrentas a retos similares de arquitectura cloud, middleware o
+      automatización, o simplemente quieres comentar alguno de estos proyectos,
+      escríbeme por LinkedIn.
+    </p>
+    <div class="cta-buttons">
+      <a class="btn btn-primary" href="https://www.linkedin.com/in/hector-carricondo-cloud" target="_blank" rel="noopener">Conectar en LinkedIn</a>
+      <a class="btn btn-secondary" href="https://TU-DOMINIO-CARRICONDOTECH" target="_blank" rel="noopener">Ver CarricondoTech</a>
+    </div>
+  </div>
+
+  <footer>
+    Hector Carricondo — Cloud &amp; Middleware / Platform Architect
+  </footer>
+
+</div>
+</body>
+</html>
