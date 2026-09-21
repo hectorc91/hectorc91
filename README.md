@@ -1,16 +1,23 @@
-## Hi there 👋
+### Hector Carricondo — Platform Architect & Technical Advisory - Cloud Architect
 
-<!--
-**hectorc91/hectorc91** is a ✨ _special_ ✨ repository because its `README.md` (this file) appears on your GitHub profile.
+Documento en abierto cómo despliego, con herramientas 100% open source, la misma infraestructura y automatización que suelo implantar en entornos empresariales: Ansible, Kubernetes/OpenShift, middleware y observabilidad.
 
-Here are some ideas to get you started:
+🌐 Web: [hectorc91.github.io](https://hectorc91.github.io)
+💼 LinkedIn: [linkedin.com/in/hector-carricondo-cloud](https://www.linkedin.com/in/hector-carricondo-cloud)
 
-- 🔭 I’m currently working on ...
-- 🌱 I’m currently learning ...
-- 👯 I’m looking to collaborate on ...
-- 🤔 I’m looking for help with ...
-- 💬 Ask me about ...
-- 📫 How to reach me: ...
-- 😄 Pronouns: ...
-- ⚡ Fun fact: ...
--->
+---
+
+### 🚀 Proyectos destacados
+
+| Repositorio | Descripción |
+|---|---|
+| [`automation-awx`](https://github.com/hectorc91/automation-awx) | AWX como alternativa open source a Ansible Tower |
+| [`platform-okd`](https://github.com/hectorc91/platform-okd) | OKD, la edición comunitaria de OpenShift |
+
+*(se irán añadiendo más a medida que se publiquen: seguridad, observabilidad, IA)*
+
+---
+
+### 🛠️ Stack habitual
+
+`Ansible` `Kubernetes` `OpenShift` `Oracle WebLogic` `OCI` `GitLab CI/CD` `Python` `n8n`
